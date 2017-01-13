@@ -2,10 +2,14 @@ function love.load()
 	player={}
 	player.speed=100
 	player.health=10
+	player.ammo=10
 	player.position={x=0,y=0}
-	player.Move= function(self,direction,dt)
+	player.Move = function(self,direction,dt)
 		self.position.x=self.position.x+(self.speed*dt*direction.x)
 		self.position.y=self.position.y+(self.speed*dt*direction.y)
+	player.Fire = function(direction)
+		ammo=ammo-1
+	end
 	end
 end
 
