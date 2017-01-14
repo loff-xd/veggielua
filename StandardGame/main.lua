@@ -1,7 +1,11 @@
+require "Entity"
+require "Player"
+
 function love.load()
-  
+  player=Player.new(10,20,{x=0,y=0},25,10)
   -- PLAYER
-	player={}
+  
+	--[[player={}
 	player.speed=100
 	player.health=10
 	player.ammo=10
@@ -13,14 +17,14 @@ function love.load()
   end
 	player.Fire = function(direction)
 		ammo=ammo-1
-	end
+	end]]--
   
 end
 
 function love.update(dt)
   
   -- PLAYER MOVEMENT
-	if love.keyboard.isDown("w") then
+	--[[if love.keyboard.isDown("w") then
 		player:Move({x=0,y=-1},dt)
 	end
 	if love.keyboard.isDown("s") then
@@ -31,10 +35,11 @@ function love.update(dt)
 	end
 	if love.keyboard.isDown("d") then
 		player:Move({x=1,y=0},dt)
-	end
+	end]]--
+	Entity:Update(dt)
   
 end
 
 function love.draw()
-	love.graphics.rectangle("fill",player.position.x,player.position.y,player.size,player.size)
+	Entity:Draw()
 end

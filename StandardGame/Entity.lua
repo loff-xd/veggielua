@@ -12,16 +12,22 @@ Entity.CompressEntities=function(self)
 	self.entities=cond
 end
 --updates and cleans entities
-Enitity.Update=function(self)
+Entity.Update=function(self,dt)
 	cond={}
 	for k,v in pairs(self.entities) do
 		if v.isActive then
 			v.key=#cond+1
 			cond[#cond+1]=v
-			v:update()
+			v:Update(dt)
 		end
 	end
 	self.entities=cond
+end
+
+Entity.Draw=function(self)
+	for k,v in pairs(self.entities) do
+		v:Draw()
+	end
 end
 
 Entity.new= function(name,health,speed,position,size)
@@ -32,7 +38,7 @@ Entity.new= function(name,health,speed,position,size)
 	newEntity.speed=speed
 	newEntity.position=position
 	newEntity.size=size
-	new.isActive=true
+	newEntity.isActive=true
 	--override this with entity logic
 	newEntity.Update=function(self,dt)
 	
