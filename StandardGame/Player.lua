@@ -17,16 +17,16 @@ Player.new=function(health,speed,position,size,ammo)
     
 	newPlayer.Update=function(self,dt)
 		if love.keyboard.isDown("w") then
-      newPlayer:Move({x=0,y=-1},dt)
+      self:Move({x=0,y=-1},dt)
 		end
 		if love.keyboard.isDown("s") then
-			newPlayer:Move({x=0,y=1},dt)
+			self:Move({x=0,y=1},dt)
 		end
 		if love.keyboard.isDown("a") then
-			newPlayer:Move({x=-1,y=0},dt)
+			self:Move({x=-1,y=0},dt)
 		end
 		if love.keyboard.isDown("d") then
-			newPlayer:Move({x=1,y=0},dt)
+			self:Move({x=1,y=0},dt)
 		end
 	end
 	return newplayer
